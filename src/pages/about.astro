@@ -1,0 +1,112 @@
+---
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+
+const sobreMi =  'About';
+const mySiteTitle = 'Mi sitio Astro';
+
+const identity = {
+  firstName: 'Vladimir',
+  country: 'México',
+  ocupation: 'Desarrollador Web',
+  hobbies: ['Leer', 'Programar']
+};
+
+const skills = [
+  { name: 'JavaScript', level: 'Avanzado' },
+  { name: 'CSS', level: 'Intermedio' },
+  { name: 'HTML', level: 'Avanzado' },
+  { name: 'Astro', level: 'Intermedio' },
+  { name: 'React', level: 'Avanzado' },
+  { name: 'Node.js', level: 'Senior' },
+  { name: 'SQL', level: 'Intermedio' },
+  { name: 'Git', level: 'Avanzado' },
+  { name: 'Docker', level: 'Intermedio' }
+];
+
+// Función para determinar las clases de Tailwind según el nivel
+function getSkillLevelStyles(level: string) {
+  switch(level) {
+    case 'Iniciando':
+      return { 
+        bg: 'bg-green-500', 
+        width: 'w-1/4',
+        text: 'text-white' 
+      }; // Verde - 25%
+    case 'Intermedio':
+      return { 
+        bg: 'bg-yellow-500', 
+        width: 'w-1/2',
+        text: 'text-gray-800' 
+      }; // Amarillo - 50%
+    case 'Avanzado':
+      return { 
+        bg: 'bg-blue-500', 
+        width: 'w-3/4',
+        text: 'text-white' 
+      }; // Azul - 75%
+    case 'Senior':
+      return { 
+        bg: 'bg-red-500', 
+        width: 'w-full',
+        text: 'text-white' 
+      }; // Rojo - 100%
+    default:
+      return { 
+        bg: 'bg-gray-300', 
+        width: 'w-[10%]',
+        text: 'text-gray-800' 
+      }; // Gris - 10%
+  }
+}
+
+---
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{mySiteTitle} - {sobreMi}</title>
+</head>
+<body>
+  <div class="container-main">
+    <nav class="nav-container">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/blog">Blog</a>
+    </nav>    <h1>{sobreMi}</h1>
+    <h2>{mySiteTitle}</h2>
+
+    <section>
+      <h3>Identidad</h3>
+      <div class="card">
+        <p class="mb-2"><span class="font-medium">Nombre:</span> {identity.firstName}</p>
+        <p class="mb-2"><span class="font-medium">Country:</span> {identity.country}</p>
+        <p class="mb-2"><span class="font-medium">Ocupation:</span> {identity.ocupation}</p>
+        <p><span class="font-medium">Hobbies:</span> {identity.hobbies.join(', ')}</p>
+      </div>
+    </section>
+    
+    <section>
+      <h3>Habilidades</h3>
+      <ul class="list-none p-0 space-y-4">
+        {skills.map(skill => {
+          const { bg, width, text } = getSkillLevelStyles(skill.level);
+          return (
+            <li class="mb-3">
+              <div class="font-medium mb-1">{skill.name} - Nivel: {skill.level}</div>
+              <div class="skill-bar-container">
+                <div class={`skill-bar ${bg} ${width} ${text}`}>
+                  {skill.level}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  </div>
+  <Footer />
+</body>
+</html>

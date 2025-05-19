@@ -1,0 +1,40 @@
+---
+const platform = {
+    github: "github",
+    linkedin: "linkedin"
+} 
+const username = {
+    github: "vladimirmoreno",
+    linkedin: "vladimirmoreno"
+};
+// https://www.linkedin.com/in/vladimirmoreno/
+
+// Obtener el año actual para el copyright
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-slate-800 text-white py-8 mt-12">
+  <div class="container-main">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <p class="text-sm">© {currentYear} - Todos los derechos reservados</p>
+      </div>      
+      <div class="flex items-center gap-4">
+        <p>¡Más información sobre mis proyectos en 
+          <a href={`https://www.${platform.github}.com/${username.github}`} 
+             class="font-bold hover:text-blue-400 transition-colors">
+            {platform.github}
+          </a>!
+        </p>
+      </div>
+        <div class="flex items-center gap-4">
+            <p>Conectemos en 
+            <a href={`https://www.${platform.linkedin}.com/in/${username.linkedin}`} 
+                 class="font-bold hover:text-blue-400 transition-colors">
+                {platform.linkedin}
+            </a>!
+            </p>
+            </div>
+    </div>
+  </div>
+</footer>
