@@ -5,7 +5,7 @@ pubDate: 2022-07-01
 description: 'Este es la primera publicación de mi nuevo blog Astro.'
 author: 'Vladimir Rugama'
 image:
-    src: '../../assets/klipartz.com.png'
+    url: 'https://wpengine.com/wp-content/uploads/2019/02/create-your-own-blog-1-768x279.jpeg'
     alt: 'El logotipo completo de Astro.'
 tags: ["astro", "bloguear", "aprender en público"]
 ---
@@ -14,16 +14,21 @@ tags: ["astro", "bloguear", "aprender en público"]
 
 Publicado el: 2022-07-01
 
-¡Bienvenido a mi _nuevo blog_ sobre el aprendizaje de Astro! Aquí, voy a compartir mi viaje de aprendizaje a medida que construyo un nuevo sitio web.
+¡Bienvenido a mi _nuevo blog_ sobre el aprendizaje de Astro! Aquí, voy a
+compartir mi viaje de aprendizaje a medida que construyo un nuevo sitio web.
 
 ## Lo que he conseguido
 
-1. **Instalación de Astro**: En primer lugar, he creado un nuevo proyecto Astro y configurar mis cuentas en línea.
+1. **Instalación de Astro**: En primer lugar, he creado un nuevo proyecto Astro
+   y configurar mis cuentas en línea.
 
-2. **Creación de páginas**: Luego aprendí cómo hacer páginas creando nuevos archivos `.astro` y colocándolos en la carpeta `src/pages/`.
+2. **Creación de páginas**: Luego aprendí cómo hacer páginas creando nuevos
+   archivos `.astro` y colocándolos en la carpeta `src/pages/`.
 
-3. **Creación de publicaciones**: ¡Esta es mi primera publicación! ¡Ahora tengo páginas de Astro y publicaciónes en Markdown!
+3. **Creación de publicaciones**: ¡Esta es mi primera publicación! ¡Ahora tengo
+   páginas de Astro y publicaciónes en Markdown!
 
 ## Próximos pasos
 
-Terminaré el tutorial de Astro, y luego seguiré añadiendo más publicaciones. Mira este espacio para más por venir.
+Terminaré el tutorial de Astro, y luego seguiré añadiendo más publicaciones.
+Mira este espacio para más por venir.

@@ -3,6 +3,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 
+const allPost = Astro.glob('../pages/posts/*.md');
 
 const pageTitle = 'Mi Blog';
 const description = 'Bienvenido a mi blog. Aquí encontrarás artículos sobre diversos temas.';
@@ -36,7 +37,7 @@ const allPosts = [
 <body>
   <div class="container-main">
     <nav class="nav-container">
-      <a href="/">Home</a>
+    
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
     </nav>

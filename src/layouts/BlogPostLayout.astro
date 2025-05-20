@@ -3,7 +3,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 
-const { frontmatter } = Astro.props;
+const { frontmatter, autor:string } = Astro.props;
 ---
 
 <html lang="es">
@@ -15,7 +15,7 @@ const { frontmatter } = Astro.props;
 <body>
   <div class="container-main">
     <nav class="nav-container">
-      <a href="/">Home</a>
+      
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
     </nav>

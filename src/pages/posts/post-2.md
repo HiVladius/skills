@@ -7,7 +7,7 @@ author: "Alumno de Astro"
 tags: ["astro", "ejemplos", "desarrollo"]
 ---
 
-### Este es el contenido del segundo post.  
+### Este es el contenido del segundo post.
 
 Puedes agregar aquí cualquier información relevante, imágenes o enlaces.
 
@@ -15,4 +15,3 @@ Puedes agregar aquí cualquier información relevante, imágenes o enlaces.
 - Punto dos
 
 ¡Gracias por leer!
-
