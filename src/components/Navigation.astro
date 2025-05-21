@@ -1,7 +1,10 @@
 ---
+// Podemos añadir cualquier lógica de JavaScript aquí
+const pathname = Astro.url.pathname;
 ---
 
-
-
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+<div class="flex items-center space-x-6 w-full">
+  <a href="/" class={`font-medium ${pathname === '/' ? 'text-blue-700' : 'text-slate-600'} hover:text-blue-600 transition-colors`}>Inicio</a>
+  <a href="/about/" class={`font-medium ${pathname.includes('/about') ? 'text-blue-700' : 'text-slate-600'} hover:text-blue-600 transition-colors`}>About</a>
+  <a href="/blog/" class={`font-medium ${pathname.includes('/blog') ? 'text-blue-700' : 'text-slate-600'} hover:text-blue-600 transition-colors`}>Blog</a>
+</div>

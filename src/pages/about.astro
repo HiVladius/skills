@@ -1,7 +1,5 @@
 ---
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-
+import Layout from '../layouts/Layout.astro';
 
 const sobreMi =  'About';
 const mySiteTitle = 'Mi sitio Astro';
@@ -63,50 +61,38 @@ function getSkillLevelStyles(level: string) {
 
 ---
 
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{mySiteTitle} - {sobreMi}</title>
-</head>
-<body>
-  <div class="container-main">
-    <nav class="nav-container">
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
-      
-    </nav>    <h1>{sobreMi}</h1>
-    <h2>{mySiteTitle}</h2>
-
-    <section>
-      <h3>Identidad</h3>
-      <div class="card">
+<Layout title={`${mySiteTitle} - ${sobreMi}`}>
+  <h1 class="text-3xl font-bold text-blue-800 mb-4">{sobreMi}</h1>
+  <h2 class="text-xl mb-6">{mySiteTitle}</h2>
+  <div class="flex flex-col md:flex-row md:space-x-8">
+    <section class="md:w-2/5">
+      <h3 class="text-xl font-semibold mb-4">Identidad</h3>
+      <div class="bg-white p-5 rounded-lg shadow-sm mb-6">
         <p class="mb-2"><span class="font-medium">Nombre:</span> {identity.firstName}</p>
         <p class="mb-2"><span class="font-medium">Country:</span> {identity.country}</p>
         <p class="mb-2"><span class="font-medium">Ocupation:</span> {identity.ocupation}</p>
         <p><span class="font-medium">Hobbies:</span> {identity.hobbies.join(', ')}</p>
       </div>
     </section>
-    
-    <section>
-      <h3>Habilidades</h3>
-      <ul class="list-none p-0 space-y-4">
-        {skills.map(skill => {
-          const { bg, width, text } = getSkillLevelStyles(skill.level);
-          return (
-            <li class="mb-3">
-              <div class="font-medium mb-1">{skill.name} - Nivel: {skill.level}</div>
-              <div class="skill-bar-container">
-                <div class={`skill-bar ${bg} ${width} ${text}`}>
-                  {skill.level}
+    <section class="md:w-4xl">
+      <h3 class="text-xl font-semibold mb-4">Habilidades</h3>
+      <div class="bg-white p-5 rounded-lg shadow-sm mb-6">
+        <ul class="list-none p-0 space-y-4">
+          {skills.map(skill => {
+            const { bg, width, text } = getSkillLevelStyles(skill.level);
+            return (
+              <li class="mb-3">
+                <div class="font-medium mb-1">{skill.name} - Nivel: {skill.level}</div>
+                <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                  <div class={`h-full ${bg} ${width} ${text} flex items-center justify-center text-xs`}>
+                    {skill.level}
+                  </div>
                 </div>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </section>
   </div>
-  <Footer />
-</body>
-</html>
+</Layout>
