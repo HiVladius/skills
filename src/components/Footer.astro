@@ -1,4 +1,6 @@
 ---
+import '../styles/footer.css';
+
 const platform = {
     github: "github",
     linkedin: "linkedin"
@@ -13,28 +15,28 @@ const username = {
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-slate-800 text-white py-8 mt-12">
-  <div class="container-main">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <div class="mb-4 md:mb-0">
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-copyright">
         <p class="text-sm">© {currentYear} - Todos los derechos reservados</p>
       </div>      
-      <div class="flex items-center gap-4">
+      <div class="footer-links">
         <p>¡Más información sobre mis proyectos en 
           <a href={`https://www.${platform.github}.com/${username.github}`} 
-             class="font-bold hover:text-blue-400 transition-colors">
+             class="footer-link">
             {platform.github}
           </a>!
         </p>
       </div>
-        <div class="flex items-center gap-4">
-            <p>Conectemos en 
-            <a href={`https://www.${platform.linkedin}.com/in/${username.linkedin}`} 
-                 class="font-bold hover:text-blue-400 transition-colors">
-                {platform.linkedin}
-            </a>!
-            </p>
-            </div>
+      <div class="footer-links">
+        <p>Conectemos en 
+          <a href={`https://www.${platform.linkedin}.com/in/${username.linkedin}`} 
+             class="footer-link">
+            {platform.linkedin}
+          </a>!
+        </p>
+      </div>
     </div>
   </div>
 </footer>

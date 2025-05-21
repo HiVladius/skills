@@ -1,7 +1,7 @@
 ---
+import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-
 
 const { frontmatter } = Astro.props;
 ---
@@ -12,12 +12,9 @@ const { frontmatter } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{frontmatter.title}</title>
 </head>
-<body>
-  <div class="container-main">
-    <nav class="nav-container">
-      <a href="/">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
+<body>  <div class="max-w-4xl mx-auto px-4 py-8">
+    <nav class="flex items-center gap-6 mb-8 border-b pb-4">
+      <Navigation />
     </nav>
     
     <article class="prose mx-auto">

@@ -1,29 +1,13 @@
 ---
 import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
 import '../styles/global.css';
 
-
+const allPost = await Astro.glob('../pages/posts/*.md');
 
 const pageTitle = 'Mi Blog';
 const description = 'Bienvenido a mi blog. Aquí encontrarás artículos sobre diversos temas.';
 
-const allPosts = [
-  {
-    title: 'Mi primera publicación',
-    slug: 'post-1',
-    excerpt: 'Esta es mi primera publicación en el blog.'
-  },
-  {
-    title: 'Mi segunda publicación',
-    slug: 'post-2',
-    excerpt: 'Continuamos con más artículos interesantes.'
-  },
-  {
-    title: 'Mi tercera publicación',
-    slug: 'post-3',
-    excerpt: 'Seguimos compartiendo conocimientos y experiencias.'
-  }
-];
 ---
 
 <html lang="es">
@@ -33,12 +17,9 @@ const allPosts = [
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>{pageTitle}</title>
 </head>
-<body>
-  <div class="container-main">
-    <nav class="nav-container">
-      <a href="/">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/about">About</a>
+<body>  <div class="max-w-4xl mx-auto px-4 py-8">
+    <nav class="flex items-center gap-6 mb-8 border-b pb-4">
+      <Navigation />
     </nav>
     
     <h1>{pageTitle}</h1>
@@ -46,18 +27,23 @@ const allPosts = [
     <p class="mb-8 text-lg">{description}</p>
 
     <div class="space-y-6">
-      {allPosts.map(post => (
-        <article class="card hover:shadow-md transition-shadow">
-          <h2 class="text-xl font-bold">{post.title}</h2>
-          <p class="text-slate-600 mb-3">{post.excerpt}</p>
-          <a href={`/posts/${post.slug}`} class="button-primary inline-block">
-            Leer más
-          </a>
-        </article>
-      ))}
+      {allPost.map(post => {
+        // Derivar el slug del nombre del archivo
+        const slug = (post.file.split('/').pop() ?? '').replace('.md', '');
+        return (
+          <article class="card hover:shadow-md transition-shadow">
+            <h2 class="text-xl font-bold">{post.frontmatter.title}</h2>
+            <p class="text-slate-600 mb-3">{post.frontmatter.excerpt}</p>
+            <p class="text-slate-600 mb-3">{post.frontmatter.description}</p>
+            <p class="text-slate-600 mb-3">{new Date(post.frontmatter.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            <a href={`/posts/${slug}`} class="button-primary inline-block">
+              Leer más
+            </a>
+          </article>
+        );
+      })}
     </div>
   </div>
     <Footer />
 </body>
-
 </html>

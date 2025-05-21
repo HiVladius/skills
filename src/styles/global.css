@@ -11,8 +11,26 @@
   --font-main: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  @apply bg-slate-50 text-slate-800 font-sans;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container-main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
 }
 
 h1 {
@@ -87,4 +105,21 @@ a {
 
 .skill-bar {
   @apply h-full rounded-md text-center text-sm leading-6;
+}
+
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: #ff9776;
+}
+
+.hamburger {
+  display: none;
 }
