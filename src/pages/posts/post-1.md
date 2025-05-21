@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPostLayout.astro"
-title: 'Mi primera publicación en el blog'
-pubDate: 2022-07-01
+title: 'La musica en procesos de aprendizaje'
+pubDate: 2025-05-21
 description: 'Este es la primera publicación de mi nuevo blog Astro.'
 author: 'Vladimir Rugama'
 image:
@@ -10,9 +10,9 @@ image:
 tags: ["astro", "bloguear", "aprender en público"]
 ---
 
-# Mi primera publicación en el blog
+## Música y aprendizaje estructurado web.
 
-Publicado el: 2022-07-01
+Publicado el: 2025-05-21
 
 ¡Bienvenido a mi _nuevo blog_ sobre el aprendizaje de Astro! Aquí, voy a
 compartir mi viaje de aprendizaje a medida que construyo un nuevo sitio web.

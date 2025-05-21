@@ -36,6 +36,7 @@ const description = 'Bienvenido a mi blog. Aquí encontrarás artículos sobre d
             <p class="text-slate-600 mb-3">{post.frontmatter.excerpt}</p>
             <p class="text-slate-600 mb-3">{post.frontmatter.description}</p>
             <p class="text-slate-600 mb-3">{new Date(post.frontmatter.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+            <p class="text-slate-600 mb-3">{post.frontmatter.author}</p>
             <a href={`/posts/${slug}`} class="button-primary inline-block">
               Leer más
             </a>

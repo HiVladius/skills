@@ -1,26 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const sobreMi =  'About';
-const mySiteTitle = 'Mi sitio Astro';
+interface Skill {
+  name: string;
+  level: string;
+}
 
-const identity = {
+interface Identity {
+  firstName: string;
+  country: string;
+  ocupation: string;
+  hobbies: string[];
+}
+
+
+
+const sobreMi =  'About';
+const mySiteTitle = 'Skills & Identity';
+
+const identity: Identity = {
   firstName: 'Vladimir',
   country: 'México',
   ocupation: 'Desarrollador Web',
-  hobbies: ['Leer', 'Programar']
+  hobbies: ['Leer', 'Programar', 'Jugar videojuegos', 'Escuchar música', 'Ver películas']
 };
 
-const skills = [
+// Separar habilidades en Frontend y Backend
+const frontendSkills: Skill[] = [
   { name: 'JavaScript', level: 'Avanzado' },
   { name: 'CSS', level: 'Intermedio' },
   { name: 'HTML', level: 'Avanzado' },
   { name: 'Astro', level: 'Intermedio' },
   { name: 'React', level: 'Avanzado' },
-  { name: 'Node.js', level: 'Senior' },
+  { name: 'TypeScript', level: 'Avanzado' },
+  { name: 'Tailwind CSS', level: 'Intermedio' },
+  { name: 'Sass', level: 'Intermedio' },
+  { name: 'GraphQL', level: 'Iniciando' }
+];
+
+const backendSkills: Skill[] = [
+  { name: 'Node.js', level: 'Avanzado' },
+  { name: 'Deno', level: 'Intermedio' },
+  { name: 'Express', level: 'Intermedio' },
+  { name: 'MongoDB', level: 'Intermedio' },
+  { name: 'PostgreSQL', level: 'Intermedio' },
+  { name: 'Firebase', level: 'Intermedio' },
   { name: 'SQL', level: 'Intermedio' },
   { name: 'Git', level: 'Avanzado' },
-  { name: 'Docker', level: 'Intermedio' }
+  { name: 'Docker', level: 'Iniciando' }
 ];
 
 // Función para determinar las clases de Tailwind según el nivel
@@ -52,7 +79,7 @@ function getSkillLevelStyles(level: string) {
       }; // Rojo - 100%
     default:
       return { 
-        bg: 'bg-gray-300', 
+        bg: 'bg-gray-300/20', 
         width: 'w-[10%]',
         text: 'text-gray-800' 
       }; // Gris - 10%
@@ -74,24 +101,45 @@ function getSkillLevelStyles(level: string) {
         <p><span class="font-medium">Hobbies:</span> {identity.hobbies.join(', ')}</p>
       </div>
     </section>
-    <section class="md:w-4xl">
+    <section class="md:w-3/5">
       <h3 class="text-xl font-semibold mb-4">Habilidades</h3>
-      <div class="bg-white p-5 rounded-lg shadow-sm mb-6">
-        <ul class="list-none p-0 space-y-4">
-          {skills.map(skill => {
-            const { bg, width, text } = getSkillLevelStyles(skill.level);
-            return (
-              <li class="mb-3">
-                <div class="font-medium mb-1">{skill.name} - Nivel: {skill.level}</div>
-                <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
-                  <div class={`h-full ${bg} ${width} ${text} flex items-center justify-center text-xs`}>
-                    {skill.level}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-5 rounded-lg shadow-sm mb-6">
+        <div>
+          <h4 class="text-lg font-semibold mb-2 text-blue-700">Frontend</h4>
+          <ul class="list-none p-0 space-y-4">
+            {frontendSkills.map(skill => {
+              const { bg, width, text } = getSkillLevelStyles(skill.level);
+              return (
+                <li class="mb-3">
+                  <div class="font-medium mb-1">{skill.name} - Nivel: {skill.level}</div>
+                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div class={`h-full ${bg} ${width} ${text} flex items-center justify-center text-xs`}>
+                      {skill.level}
+                    </div>
                   </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-2 text-green-700">Backend</h4>
+          <ul class="list-none p-0 space-y-4">
+            {backendSkills.map(skill => {
+              const { bg, width, text } = getSkillLevelStyles(skill.level);
+              return (
+                <li class="mb-3">
+                  <div class="font-medium mb-1">{skill.name} - Nivel: {skill.level}</div>
+                  <div class="bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div class={`h-full ${bg} ${width} ${text} flex items-center justify-center text-xs`}>
+                      {skill.level}
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </section>
   </div>

@@ -1,0 +1,77 @@
+---
+
+
+
+const tablaStimulos = [
+  {
+    tipo: 'Música Clásica (instrumental)',
+    efectos: 'Mejora de concentración, reducción de estrés, ambiente propicio para el pensamiento profundo.',
+    evidencia: 'Moderada. Preferir piezas sin cambios dinámicos abruptos.',
+    utilidad: 'Sesiones largas de codificación, estudio de teoría compleja, resolución de problemas arquitectónicos.'
+  },
+  {
+    tipo: 'Música Ambiental / Lo-fi / Chillhop',
+    efectos: 'Fomenta estado de flujo, reduce la ansiedad, minimiza distracciones.',
+    evidencia: 'Moderada. Ideal por su baja prominencia y ritmos constantes.',
+    utilidad: 'Codificación continua, tareas repetitivas, aprendizaje de nueva sintaxis, trabajo en interfaces de usuario.'
+  },
+  {
+    tipo: 'Sonidos de la Naturaleza (lluvia, olas)',
+    efectos: 'Promueve relajación, reduce el estrés, mejora el enfoque al enmascarar ruidos molestos.',
+    evidencia: 'Moderada. Efectividad varía según preferencia personal.',
+    utilidad: 'Momentos de alta presión, debugging, planificación de proyectos, lectura de documentación extensa.'
+  },
+  {
+    tipo: 'Música Electrónica (instrumental, minimalista)',
+    efectos: 'Mantiene un nivel de energía constante, puede ayudar con el ritmo y la motivación.',
+    evidencia: 'Mixta. Evitar subgéneros muy energéticos o con vocales. El carácter repetitivo puede ser beneficioso o monótono según la persona.',
+    utilidad: 'Tareas de implementación que requieren resistencia, refactorización de código, pruebas unitarias.'
+  },
+  {
+    tipo: 'Frecuencias Específicas (Ondas Alfa)',
+    efectos: 'Teóricamente promueven relajación alerta y aprendizaje.',
+    evidencia: 'Baja-Mixta. Requiere escepticismo y autoexperimentación cuidadosa. [14]',
+    utilidad: 'Meditación previa al estudio, intentos de mejorar la receptividad al aprendizaje (con cautela).'
+  },
+  {
+    tipo: 'Binaural Beats / Tonos Isocrónicos',
+    efectos: 'Teóricamente pueden influir en ondas cerebrales para memoria o concentración (e.g., beta).',
+    evidencia: 'Muy Mixta/Debatida. Evidencia científica inconsistente, alta variabilidad individual. Usar con extrema cautela y escepticismo. [18, 19]',
+    utilidad: 'Experimentación personal para tareas de memorización o concentración, si otros métodos no funcionan y bajo estricta autoevaluación.'
+  },
+  {
+    tipo: 'Silencio',
+    efectos: 'Maximiza recursos cognitivos para la tarea principal, elimina distracciones auditivas.',
+    evidencia: 'Alta (para tareas de alta demanda cognitiva).',
+    utilidad: 'Aprendizaje de conceptos muy abstractos o complejos, depuración de errores lógicos difíciles, diseño de algoritmos, preparación para exámenes.'
+  }
+];
+const { rows, title } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<section class="my-8">
+  {title && <h3 class="text-xl font-bold mb-4">{title}</h3>}
+  <div class="overflow-x-auto">
+    <table class="min-w-full border border-slate-300 bg-white rounded-lg text-sm">
+      <thead class="bg-slate-100">
+        <tr>
+          <th class="px-4 py-2 border-b text-left">Tipo de Estímulo Auditivo</th>
+          <th class="px-4 py-2 border-b text-left">Efectos Cognitivos Relevantes</th>
+          <th class="px-4 py-2 border-b text-left">Nivel de Evidencia Científica</th>
+          <th class="px-4 py-2 border-b text-left">Potencialmente Útil Para</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tablaStimulos.map((row: { tipo: unknown; efectos: unknown; evidencia: unknown; utilidad: unknown; }) => (
+          <tr class="even:bg-slate-50">
+            <td class="px-4 py-2 align-top border-b">{row.tipo}</td>
+            <td class="px-4 py-2 align-top border-b">{row.efectos}</td>
+            <td class="px-4 py-2 align-top border-b">{row.evidencia}</td>
+            <td class="px-4 py-2 align-top border-b">{row.utilidad}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
